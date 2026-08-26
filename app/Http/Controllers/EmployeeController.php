@@ -23,8 +23,9 @@ class EmployeeController extends Controller
 
 public function index(Request $request)
 {
-    $filters = $request->only(['name', 'departament']);
+    $filters = $request->only(['name', 'departament', 'min_salary']);
     $employees = $this->repo->findAll($filters);
+
     
     return response()->json($employees, 200, [
         'X-Total-Count' => $employees->total(),
@@ -51,7 +52,7 @@ public function show(int $id)
 
 public function list(Request $request)
 {
-    $filters = $request->only(['name', 'departament']);
+    $filters = $request->only(['name', 'departament', 'min_salary']);
     $employees = $this->repo->findAll($filters);
 
     return view('employees', [

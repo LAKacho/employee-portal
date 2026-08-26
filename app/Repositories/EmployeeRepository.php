@@ -17,6 +17,9 @@ class EmployeeRepository
             ->when($filters['departament'] ?? null, function ($query, $departament) {
                 $query->where('departament', $departament);
             })
+            ->when($filters['min_salary'] ?? null, function ($query, $minSalary) {
+                $query->where('salary', '>=', $minSalary);
+            })
             ->paginate($perPage);
     }
 
