@@ -17,7 +17,7 @@ class EmployeeController extends Controller
 {
     public function hello()
     {
-        return "Привет от Controller";
+        return "Привет от Версия 2 ";
     }
 
 
